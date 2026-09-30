@@ -135,7 +135,10 @@ function inCamara(c){ return CAMARA.indexOf(c) >= 0; }
 function circTitle(c){ return c ? (c+"ª Circunscrição · Sede "+SEDES[c]) : "Sem circunscrição (distrito estadual)"; }
 
 const map = L.map('map',{zoomControl:true, scrollWheelZoom:true}).setView([-8.3,-37.0],7);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+// Chave CARTO Basemaps (uso nao-comercial): restrita por dominio no dashboard CARTO
+// (chlima123.github.io e *.vercel.app -- este dashboard tem URL de projeto e de alias).
+const CARTO_KEY = 'cb1_45k2_1_177642698bdff751f40823e2';
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}.png?key=' + CARTO_KEY,{
   attribution:'&copy; OSM &copy; CARTO', maxZoom:19
 }).addTo(map);
 
